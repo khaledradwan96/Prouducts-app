@@ -3,10 +3,18 @@ var productPriceInput = document.getElementById('pPrice');
 var productCategoryInput = document.getElementById('pCategory');
 var productImageInput = document.getElementById('pImage');
 var productDescInput = document.getElementById('pDesc');
+var productContainer = [];                                
 
+function addProduct(){
+   var product = {
+    name : productNameInput.value,
+    price: productPriceInput.value,
+    category: productCategoryInput.value,
+    image: 'phone.webp',
+    desc: productDescInput.value
+   };
+   console.log(product);
 
-console.log(productNameInput)
-console.log(productPriceInput)
-console.log(productCategoryInput)
-console.log(productImageInput)
-console.log(productDescInput)
+   productContainer.push(product);
+   console.log(productContainer)
+}
