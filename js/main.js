@@ -13,8 +13,17 @@ function addProduct(){
     image: 'phone.webp',
     desc: productDescInput.value
    };
-   console.log(product);
 
    productContainer.push(product);
    console.log(productContainer)
+
+   clearForm()
+}
+
+function clearForm(){
+    productNameInput.value = null;
+    productPriceInput.value = null;
+    productCategoryInput.value = null;
+    productImageInput.value = null;
+    productDescInput.value = null;    
 }
