@@ -3,7 +3,14 @@ var productPriceInput = document.getElementById('pPrice');
 var productCategoryInput = document.getElementById('pCategory');
 var productImageInput = document.getElementById('pImage');
 var productDescInput = document.getElementById('pDesc');
-var productContainer = [];     
+
+var productContainer;
+if(localStorage.getItem('products') === null){  // user is new
+    productContainer = []
+    }else{ // user have storage data
+    productContainer = JSON.parse(localStorage.getItem('products'));
+    displayProduct();
+    }            
 
 function addProduct(){
    var product = {
