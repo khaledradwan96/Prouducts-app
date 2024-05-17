@@ -3,7 +3,7 @@ var productPriceInput = document.getElementById('pPrice');
 var productCategoryInput = document.getElementById('pCategory');
 var productImageInput = document.getElementById('pImage');
 var productDescInput = document.getElementById('pDesc');
-var productContainer = [];                                
+var productContainer = [];     
 
 function addProduct(){
    var product = {
@@ -16,9 +16,10 @@ function addProduct(){
 
    clearForm()
    productContainer.push(product);
+   localStorage.setItem('products', JSON.stringify(productContainer))
    displayProduct()
-   console.log(productContainer)
 
+   
 
 }
 
@@ -41,8 +42,8 @@ cartona += `<div class="col-md-4">
   <p class="text-secondary">${productContainer[i].desc}</p>
   <h3 class="h5"><span class="fw-bold">Price :</span>${productContainer[i].price}</h3>
   <h3 class="h5"><span class="fw-bold">Category :</span>${productContainer[i].category}</h3>
-  <button class="btn btn-outline-danger"> <i class="fa-solid fa-delete-left"></i>Delete</button>
-  <button class="btn btn-outline-warning"> <i class="fa-solid fa-edit"></i>Update</button>
+  <button class="btn btn-outline-danger mb-2"> <i class="fa-solid fa-delete-left"></i> Delete</button>
+  <button class="btn btn-outline-warning mb-2"> <i class="fa-solid fa-edit"></i> Update</button>
 </div>
 </div>`
     
@@ -50,21 +51,3 @@ cartona += `<div class="col-md-4">
 console.log(cartona)
 document.getElementById("myRow").innerHTML = cartona
 }
-
-
-// json
-var newArr = [
-    {name: "nokia", price: "2000", category: "Tv", image: "honoe.webp", desc: "asss"},
-    {name: "phone", price: "2000", category: "Tv", image: "honoe.webp", desc: "asss"},
-    {name: "Oppo", price: "2000", category: "Tv", image: "honoe.webp", desc: "asss"},
-    {name: "iphone", price: "2000", category: "Tv", image: "honoe.webp", desc: "asss"},
-
-]
-
-var box = ''
-for(var i=0; i<newArr.length; i++){
-    box += `
-    <h2>${newArr[i].name}</h2>
-    <p>${newArr[i].price}</p>`
-}
-console.log(box)
