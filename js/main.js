@@ -5,6 +5,10 @@ var productImageInput = document.getElementById('pImage');
 var productDescInput = document.getElementById('pDesc');
 var searchInput = document.getElementById('searchInput');
 
+var addBtn = document.getElementById('addBtn');
+var updateBtn = document.getElementById('updateBtn');
+
+
 var productContainer;
 if(localStorage.getItem('products') === null){  // user is new
     productContainer = []
@@ -51,7 +55,7 @@ cartona += `
         <h3 class="h5"><span class="fw-bold">Category: </span>${productContainer[i].category}</h3>
         <button onclick="deleteProduct(${i})" class="btn btn-outline-danger mb-2"> 
             <i class="fa-solid fa-delete-left"></i> Delete</button>
-        <button class="btn btn-outline-warning mb-2">
+        <button  onclick="getValues(${i})" class="btn btn-outline-warning mb-2">
             <i class="fa-solid fa-edit"></i> Update</button>
     </div>
 </div>`
@@ -95,6 +99,16 @@ function search(){
         }
     }
     document.getElementById("myRow").innerHTML = cartona
+};
+
+function getValues(index){
+    console.log(index)
+    productNameInput.value = productContainer[index].name
+    productPriceInput.value = productContainer[index].price
+    productCategoryInput.value = productContainer[index].category
+    // productImageInput.value = productContainer[index].image
+    productDescInput.value = productContainer[index].desc
+
+    addBtn.classList.add("d-none")
+    updateBtn.classList.remove("d-none")
 }
-
-
