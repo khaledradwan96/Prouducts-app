@@ -12,11 +12,10 @@ var updateBtn = document.getElementById('updateBtn');
 var productContainer;
 if(localStorage.getItem('products') === null){  // user is new
     productContainer = []
-    }
-    else{ // user have storage data
+    }else{ // user have storage data
     productContainer = JSON.parse(localStorage.getItem('products'));
     displayProduct();
-    }            
+    };           
 
 
 function addProduct(){
@@ -32,7 +31,7 @@ function addProduct(){
    productContainer.push(product);
    localStorage.setItem('products', JSON.stringify(productContainer))
    displayProduct()
-}
+};
 
 function clearForm(){
     productNameInput.value = null;
@@ -61,13 +60,13 @@ cartona += `
 </div>`
 }
 document.getElementById("myRow").innerHTML = cartona
-}
+};
 
 function clearAll(){
     localStorage.clear();
     productContainer = [];
     document.getElementById("myRow").innerHTML = ""
-}
+};
 
 function deleteProduct(index){
     console.log(index) // for get index of click
@@ -75,7 +74,7 @@ function deleteProduct(index){
     localStorage.setItem('products', JSON.stringify(productContainer)) 
     // to change localStorage
     displayProduct() // to display product in the page
-}
+};
 
 function search(){
     var term = searchInput.value;
@@ -101,8 +100,10 @@ function search(){
     document.getElementById("myRow").innerHTML = cartona
 };
 
+
 function getValues(index){
     console.log(index)
+    updateIndex = index
     productNameInput.value = productContainer[index].name
     productPriceInput.value = productContainer[index].price
     productCategoryInput.value = productContainer[index].category
@@ -111,4 +112,21 @@ function getValues(index){
 
     addBtn.classList.add("d-none")
     updateBtn.classList.remove("d-none")
-}
+};
+
+var updateIndex;
+
+function updateProduct(updateIndex){
+    productContainer[updateIndex].name = productNameInput.value
+    productContainer[updateIndex].price = productPriceInput.value
+    productContainer[updateIndex].category = productCategoryInput.value
+    // productImageInput[updateIndex].image = productImageInput.value
+    productContainer[updateIndex].desc = productDescInput.value
+
+    displayProduct()
+    localStorage.setItem('products', JSON.stringify(productContainer))
+    clearForm()
+
+    addBtn.classList.remove("d-none")
+    updateBtn.classList.add("d-none")
+};
