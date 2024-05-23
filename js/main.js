@@ -78,29 +78,14 @@ function deleteProduct(index){
 
 function search(){
     var term = searchInput.value;
-    var cartona = "";
     var box=[];
     for(var i=0; i<productContainer.length; i++){
         if(productContainer[i].name.toLowerCase().includes(term.toLowerCase())){
-            cartona += `
-            <div class="col-md-4"">
-                <div class="product border border-2 shadow p-3 rounded-3">
-                    <img src="${productContainer[i].image}" class="w-100" alt="">
-                    <h2 class="h4 fw-bold mt-3">${productContainer[i].name.replace(term, '<span class="bg-warning">'+term+'</span>')}</h2>
-                    <p class="text-secondary">${productContainer[i].desc}</p>
-                    <h3 class="h5"><span class="fw-bold">Price: </span>${productContainer[i].price}</h3>
-                    <h3 class="h5"><span class="fw-bold">Category: </span>${productContainer[i].category}</h3>
-                    <button onclick="deleteProduct(${i})" class="btn btn-outline-danger mb-2"> 
-                        <i class="fa-solid fa-delete-left"></i> Delete</button>
-                    <button class="btn btn-outline-warning mb-2">
-                        <i class="fa-solid fa-edit"></i> Update</button>
-                </div>
-            </div>`
+            box.push(productContainer[i])
         }
     }
-    document.getElementById("myRow").innerHTML = cartona
+    displayProduct(box)
 };
-
 
 function getValues(index){
     console.log(index)
