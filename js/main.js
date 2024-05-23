@@ -23,7 +23,7 @@ function addProduct(){
     name : productNameInput.value,
     price: productPriceInput.value,
     category: productCategoryInput.value,
-    image: 'phone.webp',
+    image: `images/${productImageInput.files[0]?.name}`,
     desc: productDescInput.value
    };
 
@@ -47,7 +47,7 @@ for(var i=0; i<productContainer.length; i++){
 cartona += `
 <div class="col-md-4" id="product${i+1}">
     <div class="product border border-2 shadow p-3 rounded-3">
-        <img src="images/phone1.webp" class="w-100" alt="phone">
+        <img src="${productContainer[i].image}" class="w-100" alt="">
         <h2 class="h4 fw-bold mt-3">${productContainer[i].name}</h2>
         <p class="text-secondary">${productContainer[i].desc}</p>
         <h3 class="h5"><span class="fw-bold">Price: </span>${productContainer[i].price}</h3>
@@ -84,8 +84,8 @@ function search(){
             cartona += `
             <div class="col-md-4" id="product${i+1}">
                 <div class="product border border-2 shadow p-3 rounded-3">
-                    <img src="images/phone1.webp" class="w-100" alt="phone">
-                    <h2 class="h4 fw-bold mt-3">${productContainer[i].name.replace(term, '<span class="bg-info">'+term+'</span>')}</h2>
+                    <img src="${productContainer[i].image}" class="w-100" alt="">
+                    <h2 class="h4 fw-bold mt-3">${productContainer[i].name.replace(term, '<span class="bg-warning">'+term+'</span>')}</h2>
                     <p class="text-secondary">${productContainer[i].desc}</p>
                     <h3 class="h5"><span class="fw-bold">Price: </span>${productContainer[i].price}</h3>
                     <h3 class="h5"><span class="fw-bold">Category: </span>${productContainer[i].category}</h3>
