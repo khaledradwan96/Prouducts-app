@@ -16,6 +16,14 @@
       height: 150px;
       object-fit: contain;
     }
+
+    .product {
+      transition: 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      background-color: rgba(204, 204, 204, 0.3)
+    }
   </style>
 </head>
 
@@ -59,7 +67,7 @@
   <div class="container text-center py-5 mt-4">
     <input type="text" id="searchInput" oninput="search()" class="form-control w-50 mx-auto my-5"
       placeholder="Search Here...">
-    <div class="row gy-5" id="myRow"> </div>
+    <div class="row gy-4" id="myRow"> </div>
     <button onclick="clearAll()" class="btn btn-danger mt-5">Clear All Products</button>
   </div>
 
