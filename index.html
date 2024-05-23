@@ -25,6 +25,23 @@
       height: 150px;
       object-fit: contain;
     }
+
+    footer .fa-circle {
+      color: #313131;
+      transition: 0.3s;
+    }
+
+    footer .fa-brands {
+      transition: 0.3s;
+    }
+
+    footer .fa-stack:hover .fa-brands {
+      color: #000;
+    }
+
+    footer .fa-stack:hover .fa-circle {
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -71,6 +88,61 @@
     <div class="row gy-4" id="myRow"> </div>
     <button onclick="clearAll()" class="btn btn-danger mt-5">Clear All Products</button>
   </div>
+
+
+  <!-- ================ Footer ==============  -->
+  <footer class="py-3 bg-black">
+    <div class="text-white text-center">
+      <p>Coding by <strong>Khaled Radwan</strong>
+        <span>
+          <i class="fa-regular fa-calendar"></i>
+          May 2024
+        </span>
+      </p>
+      <ul class="social list-inline">
+        <li class="list-inline-item">
+          <span class="fa-stack">
+            <a href="https://www.facebook.com/khaldradwan96/" target="_blank">
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-brands fa-facebook-f fa-stack-1x fa-inverse"></i>
+            </a>
+          </span>
+        </li>
+        <li class="list-inline-item">
+          <span class="fa-stack">
+            <a href="https://twitter.com/khaledradwan96" target="_blank">
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-brands fa-twitter fa-stack-1x fa-inverse"></i>
+            </a>
+          </span>
+        </li>
+        <li class="list-inline-item">
+          <span class="fa-stack">
+            <a href="https://www.linkedin.com/in/khaledradwan96" target="_blank">
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
+            </a>
+          </span>
+        </li>
+        <li class="list-inline-item">
+          <span class="fa-stack">
+            <a href="https://www.linkedin.com/in/khaledradwan96" target="_blank">
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
+            </a>
+          </span>
+        </li>
+        <li class="list-inline-item">
+          <span class="fa-stack">
+            <a href="https://github.com/khaledradwan96" target="_blank">
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
+            </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </footer>
 
   <!-- JS files -->
   <script src="js/bootstrap.bundle.min.js"></script>
