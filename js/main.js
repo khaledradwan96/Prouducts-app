@@ -1,10 +1,10 @@
-var productNameInput = document.getElementById('pName');
-var productPriceInput = document.getElementById('pPrice');
-var productCategoryInput = document.getElementById('pCategory');
-var productImageInput = document.getElementById('pImage');
-var productDescInput = document.getElementById('pDesc');
-var searchInput = document.getElementById('searchInput');
+var pName = document.getElementById('pName');
+var pPrice = document.getElementById('pPrice');
+var pCategory = document.getElementById('pCategory');
+var pImage = document.getElementById('pImage');
+var pDesc = document.getElementById('pDesc');
 
+var searchInput = document.getElementById('searchInput');
 var addBtn = document.getElementById('addBtn');
 var updateBtn = document.getElementById('updateBtn');
 
@@ -20,11 +20,11 @@ if(localStorage.getItem('products') === null){  // user is new
 
 function addProduct(){
    var product = {
-    name : productNameInput.value,
-    price: productPriceInput.value,
-    category: productCategoryInput.value,
-    image: `images/${productImageInput.files[0]?.name}`,
-    desc: productDescInput.value
+        name : pName.value,
+        price: pPrice.value,
+        category: pCategory.value,
+        image: `images/${pImage.files[0]?.name}`,
+        desc: pDesc.value
    };
 
    clearForm()
@@ -34,11 +34,11 @@ function addProduct(){
 };
 
 function clearForm(){
-    productNameInput.value = null;
-    productPriceInput.value = null;
-    productCategoryInput.value = null;
-    productImageInput.value = null;
-    productDescInput.value = null;    
+    pName.value = null;
+    pPrice.value = null;
+    pCategory.value = null;
+    pImage.value = null;
+    pDesc.value = null;    
 }
 
 function displayProduct(arr){
@@ -87,27 +87,27 @@ function search(){
     displayProduct(box)
 };
 
+var updateIndex;
+
 function getValues(index){
     console.log(index)
     updateIndex = index
-    productNameInput.value = productContainer[index].name
-    productPriceInput.value = productContainer[index].price
-    productCategoryInput.value = productContainer[index].category
-    // productImageInput.value = productContainer[index].image
-    productDescInput.value = productContainer[index].desc
+    pName.value = productContainer[index].name
+    pPrice.value = productContainer[index].price
+    pCategory.value = productContainer[index].category
+    // pImage.value = productContainer[index].image
+    pDesc.value = productContainer[index].desc
 
     addBtn.classList.add("d-none")
     updateBtn.classList.remove("d-none")
 };
 
-var updateIndex;
-
 function updateProduct(updateIndex){
-    productContainer[updateIndex].name = productNameInput.value
-    productContainer[updateIndex].price = productPriceInput.value
-    productContainer[updateIndex].category = productCategoryInput.value
-    // productImageInput[updateIndex].image = productImageInput.value
-    productContainer[updateIndex].desc = productDescInput.value
+    productContainer[updateIndex].name = pName.value
+    productContainer[updateIndex].price = pPrice.value
+    productContainer[updateIndex].category = pCategory.value
+    // pImage[updateIndex].image = pImage.value
+    productContainer[updateIndex].desc = pDesc.value
 
     displayProduct(productContainer);
     localStorage.setItem('products', JSON.stringify(productContainer))
