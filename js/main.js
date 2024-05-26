@@ -7,6 +7,7 @@ var pDesc = document.getElementById('pDesc');
 var searchInput = document.getElementById('searchInput');
 var addBtn = document.getElementById('addBtn');
 var updateBtn = document.getElementById('updateBtn');
+var clearBtn = document.getElementById('clearBtn')
 
 
 var productContainer;
@@ -31,6 +32,8 @@ function addProduct(){
    productContainer.push(product);
    localStorage.setItem('products', JSON.stringify(productContainer))
    displayProduct(productContainer)
+
+   clearBtn.classList.remove("d-none")
 };
 
 function clearForm(){
@@ -47,7 +50,7 @@ for(var i=0; i<arr.length; i++){
 cartona += `
 <div class="col-md-4"">
     <div class="product border border-2 shadow p-3 rounded-3">
-        <img src="${arr[i].image}" class="w-100" alt="">
+        <img src="${arr[i].image}" class="w-100" alt="product-image">
         <h2 class="h4 fw-bold mt-3">${arr[i].name}</h2>
         <p class="text-secondary">${arr[i].desc}</p>
         <h3 class="h5"><span class="fw-bold">Price: </span>${arr[i].price}</h3>
@@ -59,13 +62,7 @@ cartona += `
     </div>
 </div>`
 }
-document.getElementById("myRow").innerHTML = cartona
-};
-
-function clearAll(){
-    localStorage.clear();
-    productContainer = [];
-    document.getElementById("myRow").innerHTML = ""
+    document.getElementById("myRow").innerHTML = cartona
 };
 
 function deleteProduct(index){
@@ -74,6 +71,10 @@ function deleteProduct(index){
     localStorage.setItem('products', JSON.stringify(productContainer)) 
     // to change localStorage
     displayProduct(productContainer) // to display product in the page
+
+    if(productContainer.length == 0){
+        clearBtn.classList.add("d-none")
+    }
 };
 
 function search(){
@@ -86,6 +87,7 @@ function search(){
     }
     displayProduct(box)
 };
+
 
 var updateIndex;
 
@@ -116,3 +118,14 @@ function updateProduct(updateIndex){
     addBtn.classList.remove("d-none")
     updateBtn.classList.add("d-none")
 };
+
+
+function clearAll(){
+    localStorage.clear();
+    productContainer = [];
+    displayProduct(productContainer)
+    clearBtn.classList.add("d-none")
+};
+if(productContainer.length !== 0){
+    clearBtn.classList.remove("d-none")
+}
