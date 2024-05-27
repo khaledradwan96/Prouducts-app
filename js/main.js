@@ -132,21 +132,21 @@ if(productContainer.length !== 0){
 
 
 function validateInputs(element){
-    // console.log(element.id)
     var regex = {
         pName: /^[A-Z][a-z]{3,5}$/,
         pPrice: /^[1-9][0-9]{3}$/,
         pCategory: /^(Tv|laptop|screen|mobile)$/,
         pDesc: /^.{6}$/
     }
-    // console.log(regex[element.id]);
     if(regex[element.id].test(element.value)){
         console.log("match")
         element.classList.add("is-valid")
         element.classList.remove("is-invalid")
+        element.nextElementSibling.classList.replace('d-block', 'd-none')
     }else{
         console.log("no match");
         element.classList.add("is-invalid")
         element.classList.remove("is-valid")
+        element.nextElementSibling.classList.replace('d-none', 'd-block')
     }
 }

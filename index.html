@@ -50,11 +50,17 @@
     <div class="py-3 mb-2">
       <label class="fw-bold my-2" for="pName">Product Name :</label>
       <input oninput="validateInputs(this)" type="text" class="form-control" id="pName">
+      <div class="alert d-none alert-danger p-1">
+        <small>Product name must start with a capital letter and be (3:5) character</small>
+      </div>
     </div>
 
     <div class="py-3 mb-2">
       <label class="fw-bold my-2" for="pPrice">Product Price :</label>
       <input oninput="validateInputs(this)" type="text" class="form-control" id="pPrice">
+      <div class="alert d-none alert-danger p-1">
+        <small>Product price must be between (1000 : 9999)</small>
+      </div>
     </div>
 
     <div class="py-3 mb-2">
@@ -65,6 +71,9 @@
         <option value="laptop">laptop</option>
         <option value="mobile">mobile</option>
       </select>
+      <div class="alert d-none alert-danger p-1">
+        <small>Product category must be chosen</small>
+      </div>
     </div>
 
     <div class="py-3 mb-2">
@@ -75,6 +84,9 @@
     <div class="py-3 mb-2">
       <label class="fw-bold my-2" for="pDesc">Product Description :</label>
       <textarea oninput="validateInputs(this)" id="pDesc" class="form-control"></textarea>
+      <div class="alert d-none alert-danger p-1">
+        <small>Product description must be 6 characters</small>
+      </div>
     </div>
 
     <button id="addBtn" onclick="addProduct()" class="btn btn-info">Add Product</button>
